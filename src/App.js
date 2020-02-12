@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useInterval } from './hooks'
-import { ClockBase, Center, SecondHand, MinuteHand, HourHand } from './components'
+import { ClockBase, Center, SecondHand, MinuteHand, HourHand, CurTime } from './components'
 
 const App = () => {
   const date = new Date();
@@ -11,7 +11,7 @@ const App = () => {
   useInterval(() => {
     setSeconds(date.getSeconds())
     setMinutes(date.getMinutes())
-    setHours(date.getHours() % 12 || 12)
+    setHours(date.getHours() % 24 || 24)
   }, 1000)
 
   return(
@@ -20,7 +20,11 @@ const App = () => {
       <SecondHand fraction={seconds} />
       <MinuteHand fraction={minutes} />
       <HourHand fraction={hours} />
+      <CurTime data-hours={hours} data-mins={minutes} data-secs={seconds}>
+      {hours}:{minutes}:{seconds}
+    </CurTime>
     </ClockBase>
+
   )
 }
 

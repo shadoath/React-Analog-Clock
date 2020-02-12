@@ -40,7 +40,7 @@ export const SecondHand = styled(BaseHand)`
   width: 59%;
   transform-origin: 17%;
   transform: rotate(${props => getAngle(props.fraction)}deg);
-  transition: ${props => props.fraction > 0 ? 'transform 250ms ease-in-out' : 'none'}
+  transition: ${props => props.fraction > 0 ? 'transform .250ms ease-in-out' : 'none'}
 `
 
 export const MinuteHand = styled(BaseHand)`
@@ -57,4 +57,15 @@ export const HourHand = styled(BaseHand)`
   width: 35%;
   transform-origin: 14%;
   transform: rotate(${props => getAngle(props.fraction, 30)}deg)
+`
+export const CurTime = styled.div`
+  position: absolute;
+  top: 105%;
+  text-align: center;
+  width: 100%;
+  margin: auto;
+  font-weight: bold;
+  color: black;
+  z-index: 101;
+
 `
